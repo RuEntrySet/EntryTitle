@@ -1,0 +1,29 @@
+items:
+  next:
+    material: ARROW
+    amount: 1
+    data: 0
+    name: '&bСледующая страница'
+  last:
+    material: ARROW
+    amount: 1
+    data: 0
+    name: '&bПредыдущая страница'
+  back:
+    material: SPECTRAL_ARROW
+    amount: 1
+    data: 0
+    name: '&bНазад'
+  bay:
+    material: GOLD_INGOT
+    amount: 1
+    data: 0
+    name: '&bКупить собственный титул!'
+    lore:
+      - '&f'
+      - '&f Кликнув по этой кнопке, ты можешь'
+      - '&f создать свой собственный титул!'
+      - '&f'
+      - '&f Стоимость создания &b199 &fграммов.'
+      - '&f Кликай &bПКМ&f/&bЛКМ&f, для покупки!'
+      - '&f'
