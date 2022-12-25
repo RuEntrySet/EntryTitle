@@ -90,9 +90,10 @@ public class Events implements Listener {
         if(!menu.getInventory().equals(e.getClickedInventory())){
             return;
         }
-        if(e.getCurrentItem() == null || e.getCurrentItem().getType().isAir()){
+        if(e.getCurrentItem() == null){
             return;
         }
+
         if(e.getSlot() > 9 && e.getSlot() < 26 && e.getSlot() != 17 && e.getSlot() != 18){
             User user = Main.map.get(player);
             int x;
@@ -146,5 +147,4 @@ public class Events implements Listener {
             Main.messager.sendMessage(player, Main.config.getMessage("no_money"));
         }
     }
-
 }
