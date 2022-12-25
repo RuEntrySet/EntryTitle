@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import ru.entryset.title.main.Main;
 
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public class SendCommand implements CommandExecutor {
     @Override

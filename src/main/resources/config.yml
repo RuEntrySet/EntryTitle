@@ -6,17 +6,17 @@ mysql:
   password: ebmelyyo3F527!
 messages:
   prefix: '&f(&b!&f) '
-  no-permission: 'У вас нет разрешения!'
+  no_permission: 'У вас нет разрешения!'
   offline: 'Игрок оффлайн!'
-  add-use: 'Использование: &b/addtag <player> <title>&f!'
-  send-use: 'Использование: &b/sendtag <player>&f!'
-  add-title: 'Вы успешно добавили тиутл &b<title>&f игроку &b<player>&f!'
-  no-money: 'У вас не хватает граммов. Купить граммы можно в нашем онлайн-магазине&b kaiftime.ru'
+  add_use: 'Использование: &b/addtag <player> <title>&f!'
+  send_use: 'Использование: &b/sendtag <player>&f!'
+  add_title: 'Вы успешно добавили тиутл &b<title>&f игроку &b<player>&f!'
+  no_money: 'У вас не хватает граммов. Купить граммы можно в нашем онлайн-магазине&b kaiftime.ru'
   enable: 'Вы успешно включили титул <title>&f!'
   disable: 'Вы успешно выключили титул <title>&f!'
-  send-title: 'Вы успешно отправили запрос на создание титула игроку &b<player>&f!'
+  send_title: 'Вы успешно отправили запрос на создание титула игроку &b<player>&f!'
   title: '&b&lСмотри в чат!'
-  select-msg: '&bВнимание! &fПри создании титула, ознакомьтесь с правилами нашего проекта, в нашем сообществе вк:&b vk.com/kaiftimevk
+  select_msg: '&bВнимание! &fПри создании титула, ознакомьтесь с правилами нашего проекта, в нашем сообществе вк:&b vk.com/kaiftimevk
   &fЕсли вы создадите титул с нарушениями правил сервера, вас могут &cзаблокировать&f. Создавайте титул без оскорблений, мата, рекламы и религиозных отношений!
   Для создания титула напишите его в чат без слеша &b"/"&f. Для изменения цвета используйте:&b azminecraft.ru/_pu/2/52338946.png &fДля наложения градиента,
   используйте сайт:&b rgb.birdflop.com &fДля изменения шрифта, используйте сайт:&b textgenerator.ru/font/'
@@ -30,15 +30,15 @@ settings:
   cost: 199
   load: '&fЗагрузка...'
   none: '&cНет'
-  menu-title: '&0Титулы (<page>/<max>)'
-  material-title: LANTERN
-  material-title-select: SOUL_LANTERN
+  menu_title: '&0Титулы (<page>/<max>)'
+  material_title: LANTERN
+  material_title_select: SOUL_LANTERN
   lore:
     - '&f'
     - '&f Статус: &cНе активен'
     - '&f Кликай &bПКМ&f/&bЛКМ&f, для включения!'
     - '&f'
-  lore-select:
+  lore_select:
     - '&f'
     - '&f Статус: &aАктивен'
     - '&f Кликай &bПКМ&f/&bЛКМ&f, для выключения!'
