@@ -24,7 +24,7 @@ dependencies {
     val library = "C:\\Users\\t9154\\Desktop\\Исходники\\Library/"
 
     shadow(files(library + "spigot-1.17.1.jar"))
-    implementation("ru.entryset:api:2.0.0")
+    implementation("ru.entryset:api:3.0.0")
 
     compileOnly("org.black_ixx:playerpoints:3.0.3")
     compileOnly("me.clip:placeholderapi:2.10.9")
