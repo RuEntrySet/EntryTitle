@@ -2,8 +2,8 @@ package ru.entryset.title.placeholderapi;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
+import ru.entryset.api.tools.Messager;
 import ru.entryset.title.main.Main;
-import ru.entryset.title.tools.Utils;
 import ru.entryset.title.user.User;
 
 public class Placeholders extends PlaceholderExpansion {
@@ -13,15 +13,15 @@ public class Placeholders extends PlaceholderExpansion {
         User user = Main.map.get(player);
 
         if(user.isLoad()){
-            return Utils.color(" " + Main.config().getString("settings.load"));
+            return Messager.color(" " + Main.config.getString("settings.load"));
         }
 
         if(user.getActive() != null){
-            return Utils.color(" " + user.getActive().getText());
+            return Messager.color(" " + user.getActive().getText());
         }
 
         if(params.equalsIgnoreCase("title_scoreboard")){
-            return Utils.color(" " + Main.config().getString("settings.none"));
+            return Messager.color(" " + Main.config.getString("settings.none"));
         }
 
         if(params.equalsIgnoreCase("title")){
@@ -31,7 +31,7 @@ public class Placeholders extends PlaceholderExpansion {
     }
 
     public String getIdentifier() {
-        return "kaiftitle";
+        return "entrytitle";
     }
 
     public String getAuthor() {

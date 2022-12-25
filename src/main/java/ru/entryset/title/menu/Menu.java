@@ -3,9 +3,9 @@ package ru.entryset.title.menu;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import ru.entryset.api.tools.Messager;
 import ru.entryset.title.item.Controller;
 import ru.entryset.title.main.Main;
-import ru.entryset.title.tools.Utils;
 import ru.entryset.title.user.Title;
 import ru.entryset.title.user.User;
 
@@ -59,12 +59,12 @@ public class Menu {
     }
 
     public void update(){
-        setInventory(Bukkit.createInventory(getPlayer(), 9*5, Utils.color(Main.config().getString("settings.menu_title"))
+        setInventory(Bukkit.createInventory(getPlayer(), 9*5, Messager.color(Main.config.getString("settings.menu_title"))
                 .replace("<page>", getPage() + "").replace("<max>", getMaxPage() + "")));
         for(int inner2 = 0; inner2 <= 13; inner2++){
             if(getMap().containsKey(getPage())){
                 if(getMap().get(getPage()).size() > inner2){
-                    int slot = inner2;
+                    int slot;
                     if(inner2 < 7){
                         slot = (inner2 + 10);
                     } else {

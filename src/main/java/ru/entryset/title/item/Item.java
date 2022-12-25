@@ -8,8 +8,8 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import ru.entryset.api.tools.Messager;
 import ru.entryset.title.main.Main;
-import ru.entryset.title.tools.Utils;
 
 @SuppressWarnings("deprecation")
 public class Item {
@@ -29,8 +29,8 @@ public class Item {
 	private Boolean unbreakable;
 
 	public Item(String info) {
-		this.i = new ItemStack(Material.valueOf(Main.items().getString("items." + info + ".material"))
-				, Main.items().getInt("items." + info + ".amount"), (short) Main.items().getInt("items." + info + ".data"));
+		this.i = new ItemStack(Material.valueOf(Main.items.getString("items." + info + ".material"))
+				, Main.items.getInt("items." + info + ".amount"), (short) Main.items.getInt("items." + info + ".data"));
 		ItemMeta im = i.getItemMeta();
 		load(info, im);
 		i.setItemMeta(im);
@@ -66,14 +66,14 @@ public class Item {
 
 	private void load(String info, ItemMeta im) {
 		this.meta = im;
-		if(Main.items().getString("items." + info + ".name") != null) {
-			this.name = Utils.color(Main.items().getString("items." + info + ".name"));
+		if(Main.items.getString("items." + info + ".name") != null) {
+			this.name = Messager.color(Main.items.getString("items." + info + ".name"));
 			im.setDisplayName(getDisplayName());
 		}
-		if(Main.items().get("items." + info + ".lore") != null) {
+		if(Main.items.getConfiguration().get("items." + info + ".lore") != null) {
 			List<String> lore = new ArrayList<String>();
-			for(String s : Main.items().getStringList("items." + info + ".lore")) {
-				lore.add(Utils.color(s));
+			for(String s : Main.items.getStringList("items." + info + ".lore")) {
+				lore.add(Messager.color(s));
 			}
 			this.lore = lore;
 			im.setLore(lore);

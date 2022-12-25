@@ -3,8 +3,8 @@ package ru.entryset.title.user;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import ru.entryset.api.tools.Messager;
 import ru.entryset.title.main.Main;
-import ru.entryset.title.tools.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +21,12 @@ public class Title {
     }
 
     public ItemStack getItem(){
-        ItemStack stack = new ItemStack(Material.valueOf(Main.config().getString("settings.material_title_select").toUpperCase()), 1);
+        ItemStack stack = new ItemStack(Material.valueOf(Main.config.getString("settings.material_title_select").toUpperCase()), 1);
         ItemMeta meta = stack.getItemMeta();
-        meta.setDisplayName(Utils.color(getText()));
+        meta.setDisplayName(Messager.color(getText()));
         List<String> lore = new ArrayList<>();
-        for(String srt : Main.config().getStringList("settings.lore")){
-            lore.add(Utils.color(srt));
+        for(String srt : Main.config.getStringList("settings.lore")){
+            lore.add(Messager.color(srt));
         }
         meta.setLore(lore);
         stack.setItemMeta(meta);
@@ -34,12 +34,12 @@ public class Title {
     }
 
     public ItemStack getActiveItem(){
-        ItemStack stack = new ItemStack(Material.valueOf(Main.config().getString("settings.material_title").toUpperCase()), 1);
+        ItemStack stack = new ItemStack(Material.valueOf(Main.config.getString("settings.material_title").toUpperCase()), 1);
         ItemMeta meta = stack.getItemMeta();
-        meta.setDisplayName(Utils.color(getText()));
+        meta.setDisplayName(Messager.color(getText()));
         List<String> lore = new ArrayList<>();
-        for(String srt : Main.config().getStringList("settings.lore_select")){
-            lore.add(Utils.color(srt));
+        for(String srt : Main.config.getStringList("settings.lore_select")){
+            lore.add(Messager.color(srt));
         }
         meta.setLore(lore);
         stack.setItemMeta(meta);

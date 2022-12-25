@@ -4,9 +4,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import ru.entryset.title.main.Main;
 import ru.entryset.title.menu.Menu;
-import ru.entryset.title.tools.Configuration;
-import ru.entryset.title.tools.Utils;
 
 public class TagCommand implements CommandExecutor {
     @Override
@@ -15,7 +14,7 @@ public class TagCommand implements CommandExecutor {
             return false;
         }
         Player player = (Player) sender;
-        if(!Utils.hasPermission(player, Configuration.getPermission("tag"))){
+        if(!Main.messager.hasPermission(player, Main.config.getPermission("tag"))){
             return false;
         }
         new Menu(player);

@@ -6,8 +6,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import ru.entryset.title.main.Main;
-import ru.entryset.title.tools.Configuration;
-import ru.entryset.title.tools.Utils;
 
 import java.util.Objects;
 
@@ -15,21 +13,21 @@ public class SendCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-        if(!Utils.hasPermission(sender, Configuration.getPermission("send"))){
+        if(!Main.messager.hasPermission(sender, Main.config.getPermission("send"))){
             return false;
         }
         if(args.length > 0){
             if(Bukkit.getPlayer(args[0]) != null){
                 Player player = Bukkit.getPlayer(args[0]);
                 Main.getInstance().sendTitle(player);
-                Utils.sendMessage(sender, Configuration.getMessage("send_title")
-                        .replace("<player>", Objects.requireNonNull(player).getName()), true);
+                Main.messager.sendMessage(sender, Main.config.getMessage("send_title")
+                        .replace("<player>", Objects.requireNonNull(player).getName()));
                 return true;
             }
-            Utils.sendMessage(sender, Configuration.getMessage("offline"), true);
+            Main.messager.sendMessage(sender, Main.config.getMessage("offline"));
             return false;
         }
-        Utils.sendMessage(sender, Configuration.getMessage("send_use"), true);
+        Main.messager.sendMessage(sender, Main.config.getMessage("send_use"));
         return false;
     }
 }

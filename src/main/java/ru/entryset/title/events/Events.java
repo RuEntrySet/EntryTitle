@@ -9,12 +9,11 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import ru.entryset.api.tools.Messager;
 import ru.entryset.title.hook.Shards;
 import ru.entryset.title.main.Main;
 import ru.entryset.title.menu.Menu;
 import ru.entryset.title.mysql.MySQLExecutor;
-import ru.entryset.title.tools.Configuration;
-import ru.entryset.title.tools.Utils;
 import ru.entryset.title.user.Title;
 import ru.entryset.title.user.User;
 
@@ -28,39 +27,39 @@ public class Events implements Listener {
     @EventHandler
     public void onQuit(PlayerQuitEvent e){
         Main.map.remove(e.getPlayer());
-        if(e.getPlayer().hasMetadata("kaiftitle")){
-            e.getPlayer().removeMetadata("kaiftitle", Main.getInstance());
+        if(e.getPlayer().hasMetadata("entrytitle")){
+            e.getPlayer().removeMetadata("entrytitle", Main.getInstance());
             Shards shards = new Shards(e.getPlayer());
-            shards.give(Main.config().getInt("settings.cost"));
+            shards.give(Main.config.getInt("settings.cost"));
         }
     }
 
     @EventHandler
     public void onKick(PlayerKickEvent e){
         Main.map.remove(e.getPlayer());
-        if(e.getPlayer().hasMetadata("kaiftitle")){
-            e.getPlayer().removeMetadata("kaiftitle", Main.getInstance());
+        if(e.getPlayer().hasMetadata("entrytitle")){
+            e.getPlayer().removeMetadata("entrytitle", Main.getInstance());
             Shards shards = new Shards(e.getPlayer());
-            shards.give(Main.config().getInt("settings.cost"));
+            shards.give(Main.config.getInt("settings.cost"));
         }
     }
 
     @EventHandler
     public void onMessage(AsyncPlayerChatEvent e){
         Player player = e.getPlayer();
-        if(!player.hasMetadata("kaiftitle")){
+        if(!player.hasMetadata("entrytitle")){
             return;
         }
         e.setCancelled(true);
         String message = e.getMessage();
         if(message.contains("\\") || message.contains("/") || message.contains("-") || message.contains("&k")){
-            Utils.sendMessage(player, Configuration.getMessage("symbol"), true);
+            Main.messager.sendMessage(player, Main.config.getMessage("symbol"));
             return;
         }
-        message = Utils.color(message);
-        player.removeMetadata("kaiftitle", Main.getInstance());
+        message = Messager.color(message);
+        player.removeMetadata("entrytitle", Main.getInstance());
         MySQLExecutor.addTitle(Main.map.get(player), message);
-        Utils.sendMessage(player, Configuration.getMessage("confirm").replace("<title>", message), true);
+        Main.messager.sendMessage(player, Main.config.getMessage("confirm").replace("<title>", message));
     }
 
     @EventHandler
@@ -105,17 +104,15 @@ public class Events implements Listener {
             Title title = menu.getMap().get(menu.getPage()).get(x);
             if(user.getActive() != null && user.getActive().getId().equalsIgnoreCase(title.getId())){
                 MySQLExecutor.deactivation(user, title);
-                Utils.sendMessage(player, Configuration.getMessage("disable")
-                        .replace("<title>", title.getText())
-                        , true);
+                Main.messager.sendMessage(player, Main.config.getMessage("disable")
+                        .replace("<title>", title.getText()));
             } else {
                 if(user.getActive() != null){
                     MySQLExecutor.deactivation(user, user.getActive());
                 }
                 MySQLExecutor.activation(user, title);
-                Utils.sendMessage(player, Configuration.getMessage("enable")
-                                .replace("<title>", title.getText())
-                        , true);
+                Main.messager.sendMessage(player, Main.config.getMessage("enable")
+                                .replace("<title>", title.getText()));
             }
             menu.update();
             return;
@@ -137,16 +134,16 @@ public class Events implements Listener {
         }
         if(e.getSlot() == 40){
             Shards shards = new Shards(player);
-            int inner = Main.config().getInt("settings.cost");
+            int inner = Main.config.getInt("settings.cost");
             if(shards.has(inner)){
                 player.closeInventory();
-                if(!player.hasMetadata("kaiftitle")){
+                if(!player.hasMetadata("entrytitle")){
                     shards.take(inner);
                 }
                 Main.getInstance().sendTitle(player);
                 return;
             }
-            Utils.sendMessage(player, Configuration.getMessage("no_money()"), true);
+            Main.messager.sendMessage(player, Main.config.getMessage("no_money"));
         }
     }
 

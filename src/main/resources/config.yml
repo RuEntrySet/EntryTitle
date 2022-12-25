@@ -23,9 +23,9 @@ messages:
   symbol: 'Вы используете запрещенные символы (&b\&f,&b/&f,&b-&f). Попробуйте сново!'
   confirm: 'Вы успешно создали свой личный титул <title>&f! Пиши &b/tags&f для установки!'
 permissions:
-  tag: 'kaiftitle.tag'
-  send: 'kaiftitle.send'
-  add: 'kaiftitle.add'
+  tag: 'entrytitle.tag'
+  send: 'entrytitle.send'
+  add: 'entrytitle.add'
 settings:
   cost: 199
   load: '&fЗагрузка...'
