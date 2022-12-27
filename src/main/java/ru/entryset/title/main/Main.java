@@ -7,7 +7,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import ru.entryset.api.configuration.Config;
 import ru.entryset.api.configuration.Configuration;
 import ru.entryset.api.database.Database;
-import ru.entryset.api.sync.redis.Redis;
 import ru.entryset.api.tools.Messager;
 import ru.entryset.title.commands.AddCommand;
 import ru.entryset.title.commands.SendCommand;

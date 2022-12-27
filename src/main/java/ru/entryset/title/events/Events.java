@@ -1,5 +1,6 @@
 package ru.entryset.title.events;
 
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -90,7 +91,7 @@ public class Events implements Listener {
         if(!menu.getInventory().equals(e.getClickedInventory())){
             return;
         }
-        if(e.getCurrentItem() == null){
+        if(e.getCurrentItem() == null || e.getCurrentItem().getType() == Material.AIR){
             return;
         }
 

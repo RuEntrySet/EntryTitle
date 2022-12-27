@@ -8,6 +8,9 @@ version = "1.0.0"
 
 repositories {
     mavenCentral()
+    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    maven("https://oss.sonatype.org/content/repositories/snapshots")
+    maven("https://oss.sonatype.org/content/repositories/central")
     maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
     maven("https://repo.rosewooddev.io/repository/public/")
     maven {
@@ -23,8 +26,8 @@ repositories {
 dependencies {
     val library = "C:\\Users\\t9154\\Desktop\\Исходники\\Library/"
 
-    shadow(files(library + "spigot-1.17.1.jar"))
-    implementation("ru.entryset:api:3.0.0")
+    compileOnly("org.spigotmc:spigot-api:1.19.3-R0.1-SNAPSHOT")
+    implementation("ru.entryset:api:3.2.2")
 
     compileOnly("org.black_ixx:playerpoints:3.0.3")
     compileOnly("me.clip:placeholderapi:2.10.9")
