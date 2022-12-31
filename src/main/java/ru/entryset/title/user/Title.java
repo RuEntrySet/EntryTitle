@@ -21,7 +21,7 @@ public class Title {
     }
 
     public ItemStack getItem(){
-        ItemStack stack = new ItemStack(Material.valueOf(Main.config.getString("settings.material_title_select").toUpperCase()), 1);
+        ItemStack stack = new ItemStack(Material.valueOf(Main.config.getString("settings.material_title").toUpperCase()), 1);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(Messager.color(getText()));
         List<String> lore = new ArrayList<>();
@@ -34,7 +34,7 @@ public class Title {
     }
 
     public ItemStack getActiveItem(){
-        ItemStack stack = new ItemStack(Material.valueOf(Main.config.getString("settings.material_title").toUpperCase()), 1);
+        ItemStack stack = new ItemStack(Material.valueOf(Main.config.getString("settings.material_title_select").toUpperCase()), 1);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(Messager.color(getText()));
         List<String> lore = new ArrayList<>();

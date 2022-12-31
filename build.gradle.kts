@@ -27,7 +27,7 @@ dependencies {
     val library = "C:\\Users\\t9154\\Desktop\\Исходники\\Library/"
 
     compileOnly("org.spigotmc:spigot-api:1.19.3-R0.1-SNAPSHOT")
-    implementation("ru.entryset:api:3.2.2")
+    implementation("ru.entryset:api:3.2.5")
 
     compileOnly("org.black_ixx:playerpoints:3.0.3")
     compileOnly("me.clip:placeholderapi:2.10.9")
